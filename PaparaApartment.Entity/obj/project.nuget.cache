@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Q1HwHT4u3VyBWgy/OAO+fXLTxj93a6w6TeIZZSWMzxjKmwyk/jOAijtBiQAN0MEUR80Uvz/PJZLv5QVoue8p+A==",
+  "dgSpecHash": "r34dYlYrj17TsW4LTzZFsWMyyVQnfaxJBDmfd3Nlf+dKGghGLAFQFSUTj76A+Oanz6uieXiNH5o1uuT39IrHMQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\beste\\source\\repos\\PaparaApartment\\PaparaApartment.Entity\\PaparaApartment.Entity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\beste\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.1\\autofac.extras.dynamicproxy.6.0.1.nupkg.sha512",
+    "C:\\Users\\beste\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\beste\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

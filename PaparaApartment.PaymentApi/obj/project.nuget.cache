@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "HykraBVBaJ2VfAYJoZdKKY0GyQPj+v4nS/AsgNtlsXfhN2olA6+be3bNRLh9FzYGLxev5UUEQVNxLDvFOpycjw==",
+  "dgSpecHash": "eGxoqxVq8Ft9LZYOEnKn+ApDBmjQfarTX/Qwu1ZliRG+xjyloGhx5N6KcDL71AqeeqJjUfDfWLv1aeyF/tk+qQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\beste\\source\\repos\\PaparaApartment\\PaparaApartment.PaymentApi\\PaparaApartment.PaymentApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\beste\\.nuget\\packages\\autofac\\6.2.0\\autofac.6.2.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\autofac.extras.dynamicproxy\\6.0.1\\autofac.extras.dynamicproxy.6.0.1.nupkg.sha512",
+    "C:\\Users\\beste\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\beste\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

@@ -1,0 +1,88 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PaparaApartment.Business.Constant
+{
+    public class Messages
+    {
+        public static string ExpenseTypeAdded = "Expense Type Added";
+        public static string ExpenseTypeRemoved = "Expense Type Removed";
+        public static string ExpenseTypeUpdated = "Expense Type Updated";
+        public static string ExpenseTypeNotFound = "Expense Type Not Found";
+        public static string UserNotFound = "User Not Found";
+        public static string UserRemoved = "User Removed";
+        public static string PasswordError = "The Password is incorrect";
+        public static string UserLoginSuccessful = "User Login Successful";
+        public static string UserAlreadyExist = "User Already Registered With This Email";
+        public static string UserAddedWithInfos = "New User Created and Information Saved";
+        public static string UserPasswordReset = "User Password Has Been Reset";
+        public static string UserUpdated = "User Information Updated";
+        public static string UserDetailNotFound = "There was no user with detailed information.";
+        public static string UserDetailAlreadyExist = "This User's Information Is Already Available";
+        public static string UserDetailAdded = "User Information Has Been Added";
+        public static string UserDetailRemoved = "Kullanıcı Detayları Kaldırıldı";
+        public static string UserDetailUpdated = "User information has been removed.";
+        public static string MessageSend = "Message Delivered";
+        public static string RecipientNotFound = "There was no recipient found.";
+        public static string UserAddFailed = "Failed to Add User!";
+        public static string UserDetailAddFailed = "Failed to add user details!";
+        public static string MessageSendAll = "Message Delivered to All Users";
+        public static string UserMessageIncomingNotExist = "Your inbox is currently empty.";
+        public static string UserMessageSentNotExist = "Your Outbox is currently empty.";
+        public static string BlockLetterAlreadyExist = "This block name is already in use.";
+        public static string BlockAdded = "Added a new block name";
+        public static string BlockNotFound = "Name of Block Not Found";
+        public static string BlockRemoved = "Blok İsmi Kaldırıldı";
+        public static string BlockUpdated = "Name of block removed";
+        public static string ApartmentAlreadyExist = "There is already a residence registered with this block and number.";
+        public static string ApartmentAdded = "New Housing Information Has Been Added";
+        public static string ApartmentNotFound = "There is no housing information available.!";
+        public static string ApartmentUpdated = "Updated Housing Information";
+        public static string ApartmentDeleted = "Housing information has been removed.";
+        public static string ApartmentUserAlreadyExist = "Existing Residence-User Registration, Please Try Updating";
+        public static string ApartmentUserAdded = "Housing-User Data Has Been Added";
+        public static string ApartmentUserOwnerNotFound = "Housing-User Data Not Found; Please Enter Owner's Data First";
+        public static string ApartmentUserUpdated = "Housing-User Information Has Been Updated";
+        public static string ApartmentUserRemoved = "Removed Residence-User Information";
+        public static string ApartmentUserNotFound = "Housing-User Data Could Not Be Found";
+        public static string UserCarNotFound = "The user's vehicle was not found.";
+        public static string CarListNoxExist = "There is no vehicle list.";
+        public static string CarAlreadyExist = "This plate's vehicle information already exists.";
+        public static string CarAdded = "Vehicle Specifications Have Been Updated";
+        public static string CarNotFound = "The specified plate does not have a vehicle registration.";
+        public static string CarUpdated = "Vehicle Specifications Have Been Revised";
+        public static string CarRemoved = "Vehicle information has been removed.";
+        public static string ClaimNotFound = "Not Found Authorization Category";
+        public static string ClaimRemoved = "Removed the Authority Category";
+        public static string ClaimUpdated = "Updated Authorization Category";
+        public static string ClaimListNoxExist = "There is no Registered Authorization Category.";
+        public static string ClaimAlreadyExist = "This category of authorization already exists.";
+        public static string ClaimAdded = "Authorization Category Added";
+        public static string UserClaimListNoxExist = "Not Available User Authorization List";
+        public static string UserClaimAlreadyExist = "This authorization is already held by the user.";
+        public static string UserClaimAdded = "Assigned User Authorization";
+        public static string UserClaimNotFound = "User Authorization Could Not Be Found";
+        public static string UserClaimUpdated = "User Authority has been updated.";
+        public static string UserClaimCanNotBeRemoved = "This permission cannot be revoked. Every user is required to have at least one authorization. You have the option of changing authorization or deleting a user.";
+        public static string ExpenseAdded = "Added Expense";
+        public static string ExpenseNotFound = "There was no expense discovered.!";
+        public static string ExpenseUpdated = "Expenses have been updated.";
+        public static string ExpenseAddedForAll = "Expense data has been added to all residences, and an information message has been sent.";
+        public static string ApartmentExpenseAlreadyExist = "This Expense's Information Has Already Been Added";
+        public static string ApartmentExpenseAdded = "Added Expense Data for Related Housing";
+        public static string UnpaidPaymentsNotFound = "You have no outstanding invoices.";
+        public static string ExpenseCanNotBeRemoved = "Payments for this expense are unable to be removed because it has not been completed.";
+        public static string ExpenseRemoved = "Removed Expense";
+        public static string ExpenseListNotFound = "There are no unpaid or active expenses.";
+        public static string ExpenseFilterListNotFound = "There are no unpaid or active expenses for the specified date.";
+        public static string PaidPaymentsNotFound = "You Have No Paid Invoice";
+        public static string AuthorizationDenied = "You Are Not Authorized For This Transaction";
+        public static string MessageNotFound = "There are currently no messages associated with this ID.";
+        public static string UserMessageNotFound = "The specified message was not found.";
+        public static string UserMessageUpdated = "Updated Message Specific Information";
+        public static string UserMessageRemoved = "Removed the specified message";
+    }
+}

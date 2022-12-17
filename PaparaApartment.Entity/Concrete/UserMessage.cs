@@ -1,12 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PaparaApartment.Core.Entities;
+using System;
+
 
 namespace PaparaApartment.Entity.Concrete
 {
-    internal class UserMessage
+    public partial class UserMessage : IEntity
     {
+        public int Id { get; set; }
+        public int FromUserId { get; set; }
+        public int ToUserId { get; set; }
+        public int MessageId { get; set; }
+        public bool IsNew { get; set; }
+        public bool IsRead { get; set; }
+        public bool IsActiveFuser { get; set; }
+        public bool IsActiveToUser { get; set; }
+        public int IuserId { get; set; }
+        public DateTime Idate { get; set; }
+        public int? UuserId { get; set; }
+        public DateTime? Udate { get; set; }
     }
 }
