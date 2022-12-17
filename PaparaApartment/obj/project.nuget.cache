@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dCCfk5aljIGWKFK5FEx5/2tdqV/cA9TNvJPGfDgKLZ6FP0HHdt1STkiGMHeBZnuzZLMtqL004pHRWxGK9GxrJQ==",
+  "dgSpecHash": "Rf+htFfz957j7k5jsMN9d7IAEVQj2c4tt+KU224X0hjT/8PpQrW6Xqn5w6Ky13VpXAR7yqX2jU9Y+/nCfs9WvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\beste\\source\\repos\\PaparaApartment\\PaparaApartment\\PaparaApartment.csproj",
+  "projectFilePath": "C:\\Users\\beste\\source\\repos\\PaparaApartment\\PaparaApartment\\PaparaApartment.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\beste\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
