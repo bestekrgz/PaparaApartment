@@ -1,0 +1,33 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PaparaApartment.Business.Abstract
+{
+    public interface IUserService
+    {
+        IDataResult<List<UserViewDto>> GetAll();
+        User GetByMail(string mail);
+        User GetUserById(int userId);
+
+        bool UserExistsId(int userId);
+
+        bool UserExistsMail(string mail);
+
+        int GetUserId(string mail);
+
+        List<UserClaimsViewDto> GetClaims(int userId);
+        IResult Add(User newUser);
+
+        IResult AddWithDetails(UserAddWithDetailsDto newUserWithDetails);
+
+        IResult Delete(int userId);
+
+        IResult Update(UserUpdateDto userUpdateInfo);
+
+        IResult PasswordReset(int userId);
+    }
+}

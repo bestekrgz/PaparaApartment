@@ -4,4 +4,11 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PaparaApartment.Data\PaparaApartment.Data.csproj" />
+    <ProjectReference Include="..\PaparaApartment.Entity\PaparaApartment.Entity.csproj" />
+    <ProjectReference Include="..\PaparaApartment.PaymentApi\PaparaApartment.PaymentApi.csproj" />
+    <ProjectReference Include="..\PaparaApartment\PaparaApartment.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>
