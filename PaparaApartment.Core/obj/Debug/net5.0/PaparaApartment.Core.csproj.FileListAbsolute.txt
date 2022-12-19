@@ -3,3 +3,13 @@ C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.
 C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\PaparaApartment.Core.AssemblyInfoInputs.cache
 C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\PaparaApartment.Core.AssemblyInfo.cs
 C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\PaparaApartment.Core.csproj.CoreCompileInputs.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\bin\Debug\net5.0\PaparaApartment.Core.deps.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\bin\Debug\net5.0\PaparaApartment.Core.runtimeconfig.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\bin\Debug\net5.0\PaparaApartment.Core.runtimeconfig.dev.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\bin\Debug\net5.0\PaparaApartment.Core.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\bin\Debug\net5.0\PaparaApartment.Core.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\PaparaApartment.Core.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\refint\PaparaApartment.Core.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\PaparaApartment.Core.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\PaparaApartment.Core.genruntimeconfig.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Core\obj\Debug\net5.0\ref\PaparaApartment.Core.dll

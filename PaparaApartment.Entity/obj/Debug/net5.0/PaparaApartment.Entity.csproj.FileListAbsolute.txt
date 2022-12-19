@@ -3,3 +3,16 @@ C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net
 C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.AssemblyInfoInputs.cache
 C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.AssemblyInfo.cs
 C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.csproj.CoreCompileInputs.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Entity.deps.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Entity.runtimeconfig.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Entity.runtimeconfig.dev.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Entity.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Entity.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Core.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\bin\Debug\net5.0\PaparaApartment.Core.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.csproj.CopyComplete
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\refint\PaparaApartment.Entity.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\PaparaApartment.Entity.genruntimeconfig.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Entity\obj\Debug\net5.0\ref\PaparaApartment.Entity.dll

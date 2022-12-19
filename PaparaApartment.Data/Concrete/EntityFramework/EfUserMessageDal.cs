@@ -5,7 +5,7 @@ using PaparaApartment.Core.Data.EntitiyFramework;
 using PaparaApartment.Data.Context;
 using PaparaApartment.Entity.Concrete;
 using PaparaApartment.Data.Abstract;
-using PaparaApartment.Entities.Dtos.UserMessage;
+using PaparaApartment.Entity.Dtos.UserMessage;
 
 namespace ApartmentManagement.DataAccess.Concrete.EntityFramework
 {

@@ -19,9 +19,7 @@ using PaparaApartment.Core.Utilities.Security;
 using PaparaApartment.Core.Utilities.Security.Encryption;
 using PaparaApartment.Core.Utilities.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
-using AutoMapper;
-namespace PaparaApartment
+namespace PaparaApartment.WebApi
 {
     public class Startup
     {
@@ -70,7 +68,7 @@ namespace PaparaApartment
                     IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
                 });
 
-            services.AddDependencyResolvers(new ICoreModule[] { new CoreModule() });
+            services.AddDependencyInjection(new ICoreModule[] { new CoreModule() });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -83,7 +81,6 @@ namespace PaparaApartment
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApartmentManagement.WebApi v1"));
             }
 
-            app.UseCors(builder => builder.WithOrigins("http://localhost:44394", "http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 

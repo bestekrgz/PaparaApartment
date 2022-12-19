@@ -1,7 +1,7 @@
 ﻿using PaparaApartment.Core.DataAccess;
 using PaparaApartment.Entity.Concrete;
 using System.Collections.Generic;
-using PaparaApartment.Entities.Dtos.UserMessage;
+using PaparaApartment.Entity.Dtos.UserMessage;
 
 namespace PaparaApartment.Data.Abstract
 {
