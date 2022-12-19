@@ -1,7 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Business.Validation;
+using PaparaApartment.Core.Aspects;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Data.Abstract;
 using PaparaApartment.Entities.Dtos.ExpenseType;
 using PaparaApartment.Entity.Concrete;
 using System;
@@ -12,20 +17,20 @@ using System.Threading.Tasks;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class ExpenseTypeManager : IExpenseTypeService
+    public class ExpenseTypeAdmin : IExpenseTypeService
     {
         private IExpenseTypeDal _expenseTypeDal;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public ExpenseTypeManager(IExpenseTypeDal expenseTypeDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public ExpenseTypeAdmin(IExpenseTypeDal expenseTypeDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _expenseTypeDal = expenseTypeDal;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
         }
 
-        [ValidationAspect(typeof(ExpenseTypeValidator))]
+        [ValidAspect(typeof(ExpenseTypeValidator))]
         public IResult Add(ExpenseTypeAddDto expenseTypeAddDto)
         {
             var expenseType = _mapper.Map<ExpenseType>(expenseTypeAddDto);

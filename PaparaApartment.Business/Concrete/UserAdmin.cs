@@ -1,41 +1,45 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
 using PaparaApartment.Core.Entities.Concrete;
-using PaparaApartment.Entities.Dtos.Car;
-using PaparaApartment.Entities.Dtos.User;
-using PaparaApartment.Entities.Dtos.UserDetail;
-using PaparaApartment.Entity.Concrete;
+using PaparaApartment.Entity.Dtos.Car;
+using PaparaApartment.Entity.Dtos.User;
+using PaparaApartment.Entity.Dtos.UserDetail;
 using PaparaApartment.Entity.Dtos.Apartment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PaparaApartment.Data.Abstract;
+using PaparaApartment.Business.Aspects;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Core.Aspects;
+using PaparaApartment.Business.Constant;
+using Configuration.Core.Utilities.Security.PasswordCreator;
+using PaparaApartment.Core.Utilities.Security.Hashing;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class UserManager : IUserService
+    public class UserAdmin : IUserService
     {
         private IUserDal _userDal;
-        private IUserDetailService _userDetailManager;
-        private IApartmentService _apartmentManager;
-        private ICarService _carManager;
-        private IUserClaimService _userClaimManager;
+        private IUserDetailService _userDetailAdmin;
+        private IApartmentService _apartmentAdmin;
+        private ICarService _carAdmin;
+        private IUserClaimService _userClaimAdmin;
 
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public UserManager(IUserDal userDal, IMapper mapper, IUserDetailService userDetailManager, IHttpContextAccessor httpContextAccessor, IApartmentService apartmentManager, ICarService carManager, IUserClaimService userClaimManager)
+        public UserAdmin(IUserDal userDal, IMapper mapper, IUserDetailService userDetailAdmin, IHttpContextAccessor httpContextAccessor, IApartmentService apartmentAdmin, ICarService carAdmin, IUserClaimService userClaimAdmin)
         {
             _userDal = userDal;
             _mapper = mapper;
-            _userDetailManager = userDetailManager;
+            _userDetailAdmin = userDetailAdmin;
             _httpContextAccessor = httpContextAccessor;
-            _apartmentManager = apartmentManager;
-            _carManager = carManager;
-            _userClaimManager = userClaimManager;
+            _apartmentAdmin = apartmentAdmin;
+            _carAdmin = carAdmin;
+            _userClaimAdmin = userClaimAdmin;
         }
 
         [SecuredOperation("admin")]
@@ -54,79 +58,59 @@ namespace PaparaApartment.Business.Concrete
             return new SuccessResult();
         }
 
-        [TransactionScopeAspect]
+        [TransactionScopeAscpect]
         public IResult AddWithDetails(UserAddWithDetailsDto newUserWithDetails)
         {
-            //eklenecek kullanicini maili check ediliyor
             var result = _userDal.Any(x => x.Email == newUserWithDetails.Email);
 
-            //mail varsa
             if (result)
             {
-                //hata mesaji veriliyor
                 return new ErrorResult(Messages.UserAlreadyExist);
             }
 
-            //yeni kullanici icin parola olusturuluyor
             var password = PasswordHelper.CreatePassword();
 
-            //bu parolaya ait hash ve salt degerleri olusturuluyor
             HashingHelper.CreatePasswordHash(password, out var passwordHash, out var passwordSalt);
 
-            //yeni bir kullanici instance olusturuluyor ve alinan biligilerden User tablosu ile ilgili olanlar map ediliyor
             var newUser = _mapper.Map<User>(newUserWithDetails);
 
-            //User tablosunda tutulacak olan icin psswordHash ve passwordSalt degerleri nesneye yaziliyor
             newUser.PasswordSalt = passwordSalt;
             newUser.PasswordHash = passwordHash;
 
-            //yeni kullanici user tablosuna ekleniyor
             var isUserAdd = Add(newUser);
 
-            //ekleme isleminde problem olursa hata bildiriliyor
             if (!isUserAdd.Success)
             {
                 return new ErrorResult(Messages.UserAddFailed);
             }
 
-            //iliskili tablolarda userId gerekli oldugu icin yeni kullanicinin id bilgisi aliniyor
             var newUserId = GetUserId(newUserWithDetails.Email);
 
-            //linan bilgilerden userDetail tablosu ile ilgili olanlar olusturulan UserDetailAdd instance na map ediliyor
             var userDetail = _mapper.Map<UserDetailAddDto>(newUserWithDetails);
 
-            //userDetail icin gerekli olan baglantili tablo Id (UserId) bilgisi yaziliyor
             userDetail.Id = newUserId;
 
-            //userDetail tablosuna yeni kayit ekleniyor
-            var isUserDetailAdd = _userDetailManager.Add(userDetail);
+            var isUserDetailAdd = _userDetailAdmin.Add(userDetail);
 
-            //ekleme isleminde problem olursa hata bildiriliyor
             if (!isUserDetailAdd.Success)
             {
                 return new ErrorResult(Messages.UserDetailAddFailed);
             }
 
 
-            //apartment tablosunun update icin bilgileri alinarak yeni bir update instance olusturuluyor
             var updateApartmentUser = _mapper.Map<ApartmentUserUpdateDto>(newUserWithDetails);
 
-            //kullanici idsi ekleniyor
             updateApartmentUser.UserId = newUserId;
 
-            //apartment tablosundaki kullanici bilgileri degistiriliyor
-            _apartmentManager.UpdateUser(updateApartmentUser);
+            _apartmentAdmin.UpdateUser(updateApartmentUser);
 
-            //yeni eklenen kullanici icin default yetki atamasi yapiliyor
-            _userClaimManager.AddDefault(newUserId);
+            _userClaimAdmin.AddDefault(newUserId);
 
-            //arac plaka bilgisi varsa
             if (newUserWithDetails.LicensePlate != null)
             {
                 foreach (string licensePlate in newUserWithDetails.LicensePlate.ToArray())
                 {
-                    //herbir plaka icin car tablosuna kayit ekleniyor
-                    _carManager.Add(new CarAddDto() { LicensePlate = licensePlate, UserId = newUserId });
+                    _carAdmin.Add(new CarAddDto() { LicensePlate = licensePlate, UserId = newUserId });
                 }
             }
 

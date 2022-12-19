@@ -2,7 +2,7 @@
 using PaparaApartment.Core.Entities;
 using System;
 
-namespace PaparaApartment.Entities.Dtos.UserMessage
+namespace PaparaApartment.Entity.Dtos.UserMessage
 {
     public class UserMessageIncomingViewDto:IDto
     {

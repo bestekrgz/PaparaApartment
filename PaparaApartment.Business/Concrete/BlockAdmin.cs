@@ -1,26 +1,27 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Data.Abstract;
 using PaparaApartment.Entities.Dtos.Block;
 using PaparaApartment.Entity.Concrete;
 using PaparaApartment.Entity.Dtos.Block;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PaparaApartment.Business.Concrete
 {
 
-    public class BlockManager : IBlockService
+    public class BlockAdmin : IBlockService
     {
         private IBlockDal _blockDal;
         private IHttpContextAccessor _httpContextAccessor;
         private IMapper _mapper;
 
-        public BlockManager(IBlockDal blockDal, IHttpContextAccessor httpContextAccessor, IMapper mapper)
+        public BlockAdmin(IBlockDal blockDal, IHttpContextAccessor httpContextAccessor, IMapper mapper)
         {
             _blockDal = blockDal;
             _httpContextAccessor = httpContextAccessor;

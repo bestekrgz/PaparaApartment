@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ApartmentManagement.Entity.Dtos.ApartmentExpense;
+﻿using System.Collections.Generic;
+using PaparaApartment.Core.Utilities.Result;
 using PaparaApartment.Entity.Dtos.ApartmentExpense;
 
 namespace PaparaApartment.Business.Abstract

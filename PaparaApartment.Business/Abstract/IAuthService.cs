@@ -5,7 +5,7 @@ using PaparaApartment.Entity.Dtos.User;
 
 namespace PaparaApartment.Business.Abstract
 {
-    internal class IAuthService
+    public interface IAuthService
     {
         IDataResult<UserViewDto> Login(UserForLoginDto userForLogin);
 

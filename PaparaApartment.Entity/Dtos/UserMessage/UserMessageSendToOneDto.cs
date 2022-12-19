@@ -1,6 +1,6 @@
 ﻿using PaparaApartment.Core.Entities;
 
-namespace PaparaApartment.Entities.Dtos.UserMessage
+namespace PaparaApartment.Entity.Dtos.UserMessage
 {
     public class UserMessageSendToOneDto:IDto
     {

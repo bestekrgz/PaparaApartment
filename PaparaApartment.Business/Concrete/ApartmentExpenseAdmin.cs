@@ -1,31 +1,30 @@
-﻿using ApartmentManagement.Entity.Dtos.ApartmentExpense;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
 using PaparaApartment.Business.Abstract;
 using PaparaApartment.Entity.Concrete;
 using PaparaApartment.Entity.Dtos.ApartmentExpense;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Business.Aspects;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Data.Abstract;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class ApartmentExpenseManager : IApartmentExpenseService
+    public class ApartmentExpenseAdmin : IApartmentExpenseService
     {
         private IApartmentExpenseDal _apartmentExpenseDal;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
-        private IApartmentService _apartmentManager;
+        private IApartmentService _apartmentAdmin;
 
-        public ApartmentExpenseManager(IApartmentExpenseDal apartmentExpenseDal, IMapper mapper, IHttpContextAccessor httpContextAccessor, IApartmentService apartmentManager)
+        public ApartmentExpenseAdmin(IApartmentExpenseDal apartmentExpenseDal, IMapper mapper, IHttpContextAccessor httpContextAccessor, IApartmentService apartmentAdmin)
         {
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
-            _apartmentManager = apartmentManager;
+            _apartmentAdmin = apartmentAdmin;
             _apartmentExpenseDal = apartmentExpenseDal;
 
         }
@@ -47,14 +46,11 @@ namespace PaparaApartment.Business.Concrete
             return new SuccessResult(Messages.ApartmentExpenseAdded);
         }
 
-        //UPTADE METODU SADECE BURADA OLACAK
-        //BU TABLO ICIN BASKA UPDATE GEREKMIYOR
         public IResult Pay(int expenseId)
         {
             throw new NotImplementedException();
         }
 
-        //admin icin kullanimda olan herhangi bir apartmana ait yapilmayan odemeleri getiren fonksiyon
         [SecuredOperation("admin")]
         public IDataResult<List<ApartmentExpenseViewDto>> GetUnPaidPayments(int apartmentId)
         {
@@ -69,13 +65,12 @@ namespace PaparaApartment.Business.Concrete
         }
 
 
-        //admin icin kullanimda olan herhangi bir apartmana ait yapilan odemeleri getiren fonksiyon
         [SecuredOperation("admin")]
         public IDataResult<List<ApartmentExpenseViewDto>> GetPaidPayments(int apartmentId)
         {
             if (apartmentId < 0)
             {
-                apartmentId = _apartmentManager.GetIdByResidentId(_httpContextAccessor.HttpContext.User.GetLoggedUserId());
+                apartmentId = _apartmentAdmin.GetIdByResidentId(_httpContextAccessor.HttpContext.User.GetLoggedUserId());
             }
 
             var paidPayments = _apartmentExpenseDal.GetPaidPayments(x => x.ApartmentId == apartmentId);
@@ -87,18 +82,16 @@ namespace PaparaApartment.Business.Concrete
             return new SuccessDataResult<List<ApartmentExpenseViewDto>>(paidPayments);
         }
 
-        //[SecuredOperation("admin,user")]
         public IDataResult<List<ApartmentExpenseViewDto>> GetMyUnPaidPayments()
         {
-            var apartmentId = _apartmentManager.GetIdByResidentId(_httpContextAccessor.HttpContext.User.GetLoggedUserId());
+            var apartmentId = _apartmentAdmin.GetIdByResidentId(_httpContextAccessor.HttpContext.User.GetLoggedUserId());
             var result = GetUnPaidPayments(apartmentId);
             return new SuccessDataResult<List<ApartmentExpenseViewDto>>(result.Data);
         }
 
-        //[SecuredOperation("admin,user")]
         public IDataResult<List<ApartmentExpenseViewDto>> GetMyPaidPayments()
         {
-            var apartmentId = _apartmentManager.GetIdByResidentId(_httpContextAccessor.HttpContext.User.GetLoggedUserId());
+            var apartmentId = _apartmentAdmin.GetIdByResidentId(_httpContextAccessor.HttpContext.User.GetLoggedUserId());
             var result = GetPaidPayments(apartmentId);
             return new SuccessDataResult<List<ApartmentExpenseViewDto>>(result.Data);
         }

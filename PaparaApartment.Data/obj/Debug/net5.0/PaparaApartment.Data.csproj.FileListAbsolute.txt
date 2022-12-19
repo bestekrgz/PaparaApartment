@@ -1,0 +1,5 @@
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Data\obj\Debug\net5.0\PaparaApartment.Data.csproj.AssemblyReference.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Data\obj\Debug\net5.0\PaparaApartment.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Data\obj\Debug\net5.0\PaparaApartment.Data.AssemblyInfoInputs.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Data\obj\Debug\net5.0\PaparaApartment.Data.AssemblyInfo.cs
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.Data\obj\Debug\net5.0\PaparaApartment.Data.csproj.CoreCompileInputs.cache

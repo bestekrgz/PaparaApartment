@@ -1,24 +1,24 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
+using PaparaApartment.Business.Constant;
 using PaparaApartment.Core.Entities.Concrete;
-using PaparaApartment.Entities.Dtos.UserClaim;
-using PaparaApartment.Entity.Concrete;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Data.Abstract;
+using PaparaApartment.Entity.Dtos.UserClaim;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+u
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class UserClaimManager : IUserClaimService
+    public class UserClaimAdmin : IUserClaimService
     {
         private IUserClaimDal _userClaimDal;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
-        public UserClaimManager(IUserClaimDal userClaimDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public UserClaimAdmin(IUserClaimDal userClaimDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _userClaimDal = userClaimDal;
             _mapper = mapper;

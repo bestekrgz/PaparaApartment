@@ -2,23 +2,27 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
-using PaparaApartment.Entities.Dtos.UserDetail;
+using PaparaApartment.Entity.Dtos.UserDetail;
 using PaparaApartment.Entity.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PaparaApartment.Data.Abstract;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Extensions;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class UserDetailManager : IUserDetailService
+    public class UserDetailAdmin : IUserDetailService
     {
         private IUserDetailDal _userDetailDal;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public UserDetailManager(IUserDetailDal userDetailDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public UserDetailAdmin(IUserDetailDal userDetailDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _userDetailDal = userDetailDal;
             _mapper = mapper;

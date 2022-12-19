@@ -1,38 +1,39 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
-using PaparaApartment.Entities.Dtos.Message;
-using PaparaApartment.Entities.Dtos.UserMessage;
+using PaparaApartment.Business.Aspects;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Aspects;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Data.Abstract;
+using PaparaApartment.Entity.Dtos.Message;
+using PaparaApartment.Entity.Dtos.UserMessage;
 using PaparaApartment.Entity.Concrete;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class MessageManager : IMessageService
+    public class MessageAdmin : IMessageService
     {
         private IMessageDal _messageDal;
-        private IUserService _userManager;
-        private IApartmentService _apartmentManager;
-        private IUserMessageService _userMessageManager;
+        private IUserService _userAdmin;
+        private IApartmentService _apartmentAdmin;
+        private IUserMessageService _userMessageAdmin;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public MessageManager(IMessageDal messageDal, IMapper mapper, IHttpContextAccessor httpContextAccessor, IUserService userManager, IUserMessageService userMessageManager, IApartmentService apartmentManager)
+        public MessageAdmin(IMessageDal messageDal, IMapper mapper, IHttpContextAccessor httpContextAccessor, IUserService userAdmin, IUserMessageService userMessageAdmin, IApartmentService apartmentAdmin)
         {
             _messageDal = messageDal;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
-            _userManager = userManager;
-            _userMessageManager = userMessageManager;
-            _apartmentManager = apartmentManager;
+            _userAdmin = userAdmin;
+            _userMessageAdmin = userMessageAdmin;
+            _apartmentAdmin = apartmentAdmin;
         }
 
-        //[TransactionScopeAspect]
         public void Add(MessageAddDto messageAddDto)
         {
             var newMessage = _mapper.Map<Message>(messageAddDto);
@@ -44,49 +45,39 @@ namespace PaparaApartment.Business.Concrete
         }
 
         [SecuredOperation("admin")]
-        [TransactionScopeAspect]
+        [TransactionScopeAscpect]
         public IResult SendMessageToAll(MessageAddDto messageAddForAllDto)
         {
-            //UI dan gelen nesnenin mesaj bilgileri(subject ve messagetext) yeni mesaj olarak message tablosuna ekleniyor
             Add(messageAddForAllDto);
-            //eklenen mesajin Id si aliniyor
             var messageId = GetLastMessageId();
-            //kullanici listesi getiriliyor
-            var userList = _userManager.GetAll();
-            //herbir kullanici icin mesaj entrysi olusturulup tabloya ekleniyor
+            var userList = _userAdmin.GetAll();
             foreach (var user in userList.Data.ToArray())
             {
-                _userMessageManager.Add(new UserMessageAddDto()
+                _userMessageAdmin.Add(new UserMessageAddDto()
                 {
                     MessageId = messageId,
                     ToUserId = user.Id,
                 });
-                //hangfire'a islem ekle herkese yeni mesajiniz var emaili atsin
             }
 
             return new SuccessResult(Messages.MessageSendAll);
         }
 
-        [TransactionScopeAspect]
+        [TransactionScopeAscpect]
         public IResult SendMessageToOne(MessageAddForOneDto messageAddForOneDto)
         {
-            //alici olup olmadigi check ediliyor
-            if (!_userManager.UserExistsId(userId: messageAddForOneDto.RecipientId))
+            if (!_userAdmin.UserExistsId(userId: messageAddForOneDto.RecipientId))
             {
-                //yoksa aldici bulunamadi sonucu donuluyor
                 return new ErrorResult(Messages.RecipientNotFound);
             }
 
-            //UI dan gelen nesnenin eklenecek mesaj ile ilgili olan kisimlari(subject ve messagetext) yeni messageadd nesnesine map ediliyor
             var newMessage = _mapper.Map<MessageAddDto>(messageAddForOneDto);
 
-            //message tablosuna yeni mesaj ekleniyor ve eklenen mesajin Id si aliniyor
             Add(newMessage);
 
-            //eklenen mesajin Id si aliniyor
-            var messageId = GetLastMessageId();
+             var messageId = GetLastMessageId();
 
-            _userMessageManager.Add(new UserMessageAddDto()
+            _userMessageAdmin.Add(new UserMessageAddDto()
             {
                 MessageId = messageId,
                 ToUserId = messageAddForOneDto.RecipientId,

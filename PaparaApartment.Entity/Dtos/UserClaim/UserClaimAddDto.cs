@@ -1,7 +1,7 @@
 ﻿
 using PaparaApartment.Core.Entities;
 
-namespace PaparaApartment.Entities.Dtos.UserClaim
+namespace PaparaApartment.Entity.Dtos.UserClaim
 {
     public class UserClaimAddDto:IDto
     {

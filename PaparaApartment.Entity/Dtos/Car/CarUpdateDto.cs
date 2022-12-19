@@ -1,7 +1,7 @@
 ﻿
 using PaparaApartment.Core.Entities;
 
-namespace PaparaApartment.Entities.Dtos.Car
+namespace PaparaApartment.Entity.Dtos.Car
 {
     public class CarUpdateDto:IDto
     {

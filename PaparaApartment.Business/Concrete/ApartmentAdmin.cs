@@ -1,25 +1,26 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
-using PaparaApartment.Entities.Dtos.User;
+using PaparaApartment.Entity.Dtos.User;
 using PaparaApartment.Entity.Concrete;
 using PaparaApartment.Entity.Dtos.Apartment;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Business.Aspects;
+using PaparaApartment.Data.Abstract;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class ApartmentManager : IApartmentService
+    public class ApartmentAdmin : IApartmentService
     {
         private IApartmentDal _apartmentDal;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public ApartmentManager(IApartmentDal apartmentDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public ApartmentAdmin(IApartmentDal apartmentDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _apartmentDal = apartmentDal;
             _mapper = mapper;
@@ -103,27 +104,22 @@ namespace PaparaApartment.Business.Concrete
                 return new ErrorResult(Messages.ApartmentNotFound);
             }
 
-            //kiraci bilgisi degistiriliyorsa
             if (apartmentUserUpdateDto.IsHirer)
             {
-                //kiraci giris yapiyorsa
                 if (apartmentUserUpdateDto.IsResident)
                 {
                     apartment.HirerId = apartmentUserUpdateDto.UserId;
                     apartment.Status = true;
                 }
-                //kiraci cikiyorsa
                 else
                 {
                     apartment.HirerId = null;
                     apartment.Status = true;
                 }
             }
-            //degisen bilgi ev sahibine aitse
             else
             {
                 apartment.OwnerId = apartmentUserUpdateDto.UserId;
-                //ev sahibi evde oturacaksa
                 if (apartmentUserUpdateDto.IsResident)
                 {
                     apartment.Status = true;
@@ -138,7 +134,6 @@ namespace PaparaApartment.Business.Concrete
         }
 
 
-        //ISLEVSELLIGINI KONTROL ET, REVIZYON SONRASI ISE YARAYABILIR DIYE BIRAKTIN
         public IResult UpdateStatus(int apartmentId, bool status)
         {
             var apartment = _apartmentDal.Get(x => x.Id == apartmentId);
@@ -172,3 +167,4 @@ namespace PaparaApartment.Business.Concrete
             return new SuccessResult(Messages.ApartmentUpdated);
         }
     }
+}

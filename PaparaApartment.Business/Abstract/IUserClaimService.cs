@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Entity.Dtos.UserClaim;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PaparaApartment.Business.Abstract
 {

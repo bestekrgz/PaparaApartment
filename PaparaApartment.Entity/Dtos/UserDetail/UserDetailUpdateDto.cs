@@ -1,4 +1,4 @@
-﻿namespace PaparaApartment.Entities.Dtos.UserDetail
+﻿namespace PaparaApartment.Entity.Dtos.UserDetail
 {
     public class UserDetailUpdateDto
     {

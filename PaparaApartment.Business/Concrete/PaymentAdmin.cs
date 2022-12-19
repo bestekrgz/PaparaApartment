@@ -1,22 +1,20 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Data.Abstract;
 using PaparaApartment.Entities.Dtos.Payment;
 using PaparaApartment.Entity.Concrete;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class PaymentManager : IPaymentService
+    public class PaymentAdmin : IPaymentService
     {
         private IPaymentDal _paymentDal;
         private IMapper _mapper;
 
-        public PaymentManager(IPaymentDal paymentDal, IMapper mapper)
+        public PaymentAdmin(IPaymentDal paymentDal, IMapper mapper)
         {
             _paymentDal = paymentDal;
             _mapper = mapper;

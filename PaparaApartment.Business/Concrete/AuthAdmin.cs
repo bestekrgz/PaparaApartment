@@ -1,32 +1,31 @@
 ﻿using AutoMapper;
 using PaparaApartment.Business.Abstract;
 using PaparaApartment.Core.Entities.Concrete;
-using PaparaApartment.Entities.Dtos.User;
-using PaparaApartment.Entity.Concrete;
-using System;
+using PaparaApartment.Entity.Dtos.User;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PaparaApartment.Core.Utilities.Security;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Utilities.Security.Hashing;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class AuthManager : IAuthService
+    public class AuthAdmin : IAuthService
     {
-        private IUserService _userManager;
+        private IUserService _userAdmin;
         private ITokenHelper _tokenHelper;
         private IMapper _mapper;
 
-        public AuthManager(IUserService userManager, ITokenHelper tokenHelper, IMapper mapper)
+        public AuthAdmin(IUserService userAdmin, ITokenHelper tokenHelper, IMapper mapper)
         {
-            _userManager = userManager;
+            _userAdmin = userAdmin;
             _tokenHelper = tokenHelper;
             _mapper = mapper;
         }
 
         public IDataResult<UserViewDto> Login(UserForLoginDto userForLogin)
         {
-            var userToCheck = _userManager.GetByMail(userForLogin.Email);
+            var userToCheck = _userAdmin.GetByMail(userForLogin.Email);
 
             if (userToCheck is null)
             {
@@ -46,7 +45,7 @@ namespace PaparaApartment.Business.Concrete
 
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
-            var userClaims = _userManager.GetClaims(user.Id);
+            var userClaims = _userAdmin.GetClaims(user.Id);
 
             var accessToken = _tokenHelper.CreateToken(user, _mapper.Map<List<Claim>>(userClaims));
 

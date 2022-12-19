@@ -1,0 +1,15 @@
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\bin\Debug\net5.0\PaparaApartment.PaymentApi.deps.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\bin\Debug\net5.0\PaparaApartment.PaymentApi.runtimeconfig.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\bin\Debug\net5.0\PaparaApartment.PaymentApi.runtimeconfig.dev.json
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\bin\Debug\net5.0\PaparaApartment.PaymentApi.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\bin\Debug\net5.0\PaparaApartment.PaymentApi.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.csproj.AssemblyReference.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.AssemblyInfoInputs.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.AssemblyInfo.cs
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.csproj.CoreCompileInputs.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\refint\PaparaApartment.PaymentApi.dll
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.pdb
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\PaparaApartment.PaymentApi.genruntimeconfig.cache
+C:\Users\beste\source\repos\PaparaApartment\PaparaApartment.PaymentApi\obj\Debug\net5.0\ref\PaparaApartment.PaymentApi.dll

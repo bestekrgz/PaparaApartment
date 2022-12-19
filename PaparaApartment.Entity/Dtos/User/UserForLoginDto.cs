@@ -1,7 +1,7 @@
 ﻿
 using PaparaApartment.Core.Entities;
 
-namespace PaparaApartment.Entities.Dtos.User
+namespace PaparaApartment.Entity.Dtos.User
 {
     public class UserForLoginDto:IDto
     {

@@ -1,24 +1,24 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
-using PaparaApartment.Entities.Dtos.Car;
+using PaparaApartment.Entity.Dtos.Car;
 using PaparaApartment.Entity.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PaparaApartment.Data.Abstract;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Extensions;
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class CarManager : ICarService
+    public class CarAdmin : ICarService
     {
         private ICarDal _carDal;
         private IMapper _mapper;
         private IHttpContextAccessor _httpContextAccessor;
 
-        public CarManager(ICarDal carDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public CarAdmin(ICarDal carDal, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
             _carDal = carDal;
             _mapper = mapper;

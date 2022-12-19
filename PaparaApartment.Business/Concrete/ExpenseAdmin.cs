@@ -1,33 +1,35 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using PaparaApartment.Business.Abstract;
+using PaparaApartment.Business.Constant;
+using PaparaApartment.Core.Extensions;
+using PaparaApartment.Core.Utilities.Result;
+using PaparaApartment.Data.Abstract;
 using PaparaApartment.Entities.Dtos.Expense;
 using PaparaApartment.Entity.Concrete;
 using PaparaApartment.Entity.Dtos.ApartmentExpense;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PaparaApartment.Core.Aspects;
+
 
 namespace PaparaApartment.Business.Concrete
 {
-    public class ExpenseManager : IExpenseService
+    public class ExpenseAdmin : IExpenseService
     {
         private IExpenseDal _expenseDal;
         private IMapper _mapper;
-        private IApartmentService _apartmentManager;
+        private IApartmentService _apartmentAdmin;
         private IHttpContextAccessor _httpContextAccessor;
-        private IApartmentExpenseService _apartmentExpenseManager;
+        private IApartmentExpenseService _apartmentExpenseAdmin;
 
-        public ExpenseManager(IExpenseDal expenseDal, IMapper mapper, IHttpContextAccessor httpContextAccessor, IApartmentService apartmentManager, IApartmentExpenseService apartmentExpenseManager)
+        public ExpenseAdmin(IExpenseDal expenseDal, IMapper mapper, IHttpContextAccessor httpContextAccessor, IApartmentService apartmentAdmin, IApartmentExpenseService apartmentExpenseAdmin)
         {
             _expenseDal = expenseDal;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
-            _apartmentManager = apartmentManager;
-            _apartmentExpenseManager = apartmentExpenseManager;
+            _apartmentAdmin = apartmentAdmin;
+            _apartmentExpenseAdmin = apartmentExpenseAdmin;
         }
 
         public void Add(ExpenseAddForAllDto expenseAddDto)
@@ -92,7 +94,7 @@ namespace PaparaApartment.Business.Concrete
                 return new ErrorResult(Messages.ExpenseNotFound);
             }
 
-            if (!_apartmentExpenseManager.IsFullyPaid(expenseId))
+            if (!_apartmentExpenseAdmin.IsFullyPaid(expenseId))
             {
                 return new ErrorResult(Messages.ExpenseCanNotBeRemoved);
             }
@@ -105,7 +107,7 @@ namespace PaparaApartment.Business.Concrete
             return new SuccessResult(Messages.ExpenseRemoved);
         }
 
-        [TransactionScopeAspect]
+        [TransactionScopeAscpect]
         public IResult AddExpenseForAll(ExpenseAddForAllDto expenseAddDto)
         {
 
@@ -113,11 +115,11 @@ namespace PaparaApartment.Business.Concrete
 
             var expenseId = GetLastExpenseId();
 
-            var apartmentIdList = _apartmentManager.GetIdList();
+            var apartmentIdList = _apartmentAdmin.GetIdList();
 
             foreach (var apartment in apartmentIdList.ToArray())
             {
-                _apartmentExpenseManager.Add(new ApartmentExpenseAddDto()
+                _apartmentExpenseAdmin.Add(new ApartmentExpenseAddDto()
                 {
                     ApartmentId = apartment,
                     ExpenseId = expenseId,
@@ -137,7 +139,7 @@ namespace PaparaApartment.Business.Concrete
 
             var apartmentId = expenseAddForOneDto.ApartmentId;
 
-            _apartmentExpenseManager.Add(new ApartmentExpenseAddDto()
+            _apartmentExpenseAdmin.Add(new ApartmentExpenseAddDto()
             {
                 ApartmentId = apartmentId,
                 ExpenseId = expenseId,

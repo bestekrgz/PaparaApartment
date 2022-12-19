@@ -1,12 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using PaparaApartment.Entity.Concrete;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Castle.DynamicProxy;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using PaparaApartment.Business.Constant;
 using PaparaApartment.Core.Extensions;
